@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import Image, { type ImageProps } from 'next/image'
 import { MDXComponents } from 'mdx/types'
 
