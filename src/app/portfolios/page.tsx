@@ -5,7 +5,7 @@ import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 
 import LinkIcon from '@/components/icons/Link'
-import { formatDate } from '@/lib/formatDate'
+import { formatStringDate } from '@/lib/formatDate'
 import { TrophyIcon } from '@/components/icons/Trophy'
 import { awards, certificates, projects } from './portfolioLog'
 
@@ -99,7 +99,7 @@ export default function Projects() {
                     className="md:hidden"
                     decorate
                   >
-                    {formatDate(award.date)}
+                    {formatStringDate(award.date)}
                   </Card.Eyebrow>
                   <Card.Description>{award.description}</Card.Description>
                 </Card>
@@ -108,7 +108,7 @@ export default function Projects() {
                   dateTime={award.date}
                   className="mt-1 max-md:hidden"
                 >
-                  {formatDate(award.date)}
+                  {formatStringDate(award.date)}
                 </Card.Eyebrow>
               </div>
             ))}
@@ -138,7 +138,7 @@ export default function Projects() {
                     className="md:hidden"
                     decorate
                   >
-                    {formatDate(certificate.date)}
+                    {formatStringDate(certificate.date)}
                   </Card.Eyebrow>
                   <Card.Description>{certificate.description}</Card.Description>
                 </Card>
@@ -147,7 +147,7 @@ export default function Projects() {
                   dateTime={certificate.date}
                   className="mt-1 max-md:hidden"
                 >
-                  {formatDate(certificate.date)}
+                  {formatStringDate(certificate.date)}
                 </Card.Eyebrow>
               </div>
             ))}
