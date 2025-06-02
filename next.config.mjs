@@ -5,12 +5,6 @@ import remarkGfm from 'remark-gfm'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
-  reactStrictMode: true,
-  webpack5: true,
-  webpack: (config) => {
-    config.resolve.fallback = { fs: false }
-    return config
-  },
 }
 
 const withMDX = nextMDX({
@@ -18,6 +12,9 @@ const withMDX = nextMDX({
   options: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypePrism],
+    webpack(config, options) {
+      return config
+    },
   },
 })
 
