@@ -62,11 +62,6 @@ export const metadata: Metadata = {
   },
   description:
     '안녕하세요! 저는 백엔드 개발자 정선우입니다. 현재는 경영학을 전공하며, 다양한 프로젝트에 참여하고 있습니다. 제 블로그에서는 개발, 학교생활, 그리고 경영에 대한 제 생각과 경험을 공유하고 있습니다.',
-  alternates: {
-    types: {
-      'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
-    },
-  },
 }
 
 export default function RootLayout({
