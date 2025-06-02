@@ -10,6 +10,29 @@ import ArticleContent from '@/components/ArticleContent';
 
 type PageParams = Promise<{ key : string }>;
 
+export async function generateMetadata({ params }: { params: PageParams }) {
+    const { key } = await params;
+    const keyDecoded = decodeURIComponent(key);
+    const metadata = parseKey(keyDecoded);
+    if (!metadata) {
+        return {
+            title: 'Article not found',
+            description: 'The requested article could not be found.',
+        };
+    }
+    return {
+        title: metadata.title,
+        description: metadata.description,
+        openGraph: {
+            title: metadata.title,
+            description: metadata.description,
+            url: `https://ptg.kr/blog/${key}`,
+            type: 'article',
+            publishedTime: metadata.createdDate.toISOString(),
+        },
+    };
+}
+
 export default async function RemoteMdxPage({ params }: {params : PageParams}) {
     // MDX text - can be from a local file, database, CMS, fetch, anywhere...
     const { key } = await params

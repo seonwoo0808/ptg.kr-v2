@@ -1,4 +1,3 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3'
 
 const s3Client = new S3Client({
