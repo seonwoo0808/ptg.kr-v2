@@ -1,5 +1,3 @@
-import glob from 'fast-glob'
-
 interface Article {
   title: string
   description: string
@@ -26,11 +24,11 @@ async function importArticle(
 }
 
 export async function getAllArticles() {
-  let articleFilenames = await glob('*/page.mdx', {
-    cwd: './src/app/blog',
-  })
+  // let articleFilenames = await glob('*/page.mdx', {
+  //   cwd: './src/app/blog-markdown',
+  // })
 
-  let articles = await Promise.all(articleFilenames.map(importArticle))
+  let articles = await Promise.all([].map(importArticle))
 
   return articles.sort((a, z) => +new Date(z.date) - +new Date(a.date))
 }
