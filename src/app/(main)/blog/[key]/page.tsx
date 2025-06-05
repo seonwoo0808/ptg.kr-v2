@@ -39,8 +39,7 @@ export default async function RemoteMdxPage({
 }) {
   // MDX text - can be from a local file, database, CMS, fetch, anywhere...
   const { key } = await params
-  // const keyDecoded = decodeURIComponent(key)
-  const keyDecoded = 'General/This is Title|This is Description|2025-05-06.mdx'
+  const keyDecoded = decodeURIComponent(key)
 
   const markdown = await fetch('https://blog-r2.ptg.kr/' + keyDecoded).then(
     async (response) => {

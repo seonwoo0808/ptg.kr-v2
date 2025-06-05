@@ -21,7 +21,8 @@ export default function ArticleContent({ content }: { content: string }) {
         setMdxSource(source)
       })
     })
-  }, [])
+    console.log('MDX content loaded')
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <Prose className="mt-8" data-mdx-content>
       {mdxSource ? <MDXRemote {...mdxSource} /> : <p>Loading...</p>}
