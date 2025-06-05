@@ -2,7 +2,6 @@ import { type Metadata } from 'next'
 
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { getAllArticleMetas } from '@/lib/articles'
-import handler from '@/lib/r2'
 import ArticleElement from '@/components/ArticleElement'
 
 export const metadata: Metadata = {
@@ -13,8 +12,6 @@ export const metadata: Metadata = {
 
 export default async function ArticlesIndex() {
   let articleMetas = await getAllArticleMetas()
-
-  handler()
 
   return (
     <SimpleLayout
