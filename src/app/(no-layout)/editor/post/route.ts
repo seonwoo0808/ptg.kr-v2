@@ -1,5 +1,7 @@
+export const runtime = 'edge'
+
 import { NextRequest, NextResponse } from 'next/server'
-import crypto from 'crypto'
+import { sha512 } from 'js-sha512'
 import { generateKey, R2Put, validateData } from '@/lib/r2'
 
 export async function POST(request: NextRequest) {
@@ -15,11 +17,7 @@ export async function POST(request: NextRequest) {
   if (!username || !password) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
-  const hashPassword = crypto
-    .createHash('sha512')
-    .update(password)
-    .digest('hex')
-    .toUpperCase()
+  const hashPassword = sha512(password).toUpperCase()
   if (
     username !== process.env.UPLOAD_EMAIL ||
     hashPassword !== process.env.UPLOAD_PASSWORD_HASH
