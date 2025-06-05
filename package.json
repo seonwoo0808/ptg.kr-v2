@@ -23,6 +23,7 @@
     "@uiw/react-md-editor": "^4.0.7",
     "cheerio": "^1.0.0-rc.12",
     "clsx": "^2.1.0",
+    "framer-motion": "^12.16.0",
     "js-sha512": "^0.9.0",
     "next": "^15.3.3",
     "next-mdx-remote": "^5.0.0",
