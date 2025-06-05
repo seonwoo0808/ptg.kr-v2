@@ -4,7 +4,6 @@ import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
 
 import '@/styles/tailwind.css'
-// import { headers } from 'next/headers'
 
 const pretendardStd = localFont({
   src: [
@@ -65,7 +64,7 @@ export const metadata: Metadata = {
     '안녕하세요! 저는 백엔드 개발자 정선우입니다. 현재는 경영학을 전공하며, 다양한 프로젝트에 참여하고 있습니다. 제 블로그에서는 개발, 학교생활, 그리고 경영에 대한 제 생각과 경험을 공유하고 있습니다.',
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
@@ -92,6 +91,21 @@ export default async function RootLayout({
   //     )
   //   }
   // }
+  // return (
+  //   <html lang="ko" className="h-full antialiased" suppressHydrationWarning>
+  //     <body
+  //       className={
+  //         pretendardStd.className + ' flex h-full bg-zinc-50 dark:bg-black'
+  //       }
+  //     >
+  //       <Providers>
+  //         <div className="flex w-full">
+  //           <Layout>{children}</Layout>
+  //         </div>
+  //       </Providers>
+  //     </body>
+  //   </html>
+  // )
   return (
     <html lang="ko" className="h-full antialiased" suppressHydrationWarning>
       <body
@@ -100,9 +114,7 @@ export default async function RootLayout({
         }
       >
         <Providers>
-          <div className="flex w-full">
-            <Layout>{children}</Layout>
-          </div>
+          <div className="flex w-full">{children}</div>
         </Providers>
       </body>
     </html>

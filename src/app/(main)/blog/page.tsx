@@ -1,13 +1,9 @@
 import { type Metadata } from 'next'
 
-import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import { ArticleMeta, getAllArticleMetas } from '@/lib/articles'
-import { formatDate, formatStringDate } from '@/lib/formatDate'
+import { getAllArticleMetas } from '@/lib/articles'
 import handler from '@/lib/r2'
 import ArticleElement from '@/components/ArticleElement'
-
-
 
 export const metadata: Metadata = {
   title: 'Blog',
