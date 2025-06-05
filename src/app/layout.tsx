@@ -4,7 +4,7 @@ import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
 
 import '@/styles/tailwind.css'
-import { headers } from 'next/headers'
+// import { headers } from 'next/headers'
 
 const pretendardStd = localFont({
   src: [
@@ -70,28 +70,28 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const requestUrl = (await headers()).get('x-url')
-  // parse url and get uri
-  if (requestUrl) {
-    const url = new URL(requestUrl)
-    if (url.pathname === '/editor'){
-      return (
-      <html lang="ko" className="h-full antialiased" suppressHydrationWarning>
-      <body
-        className={
-          pretendardStd.className + ' flex h-full bg-zinc-50 dark:bg-black'
-        }
-      >
-        <Providers>
-          <div className="flex w-full">
-            {children}
-          </div>
-        </Providers>
-      </body>
-    </html>
-      )
-    }
-  }
+  // const requestUrl = (await headers()).get('x-url')
+  // // parse url and get uri
+  // if (requestUrl) {
+  //   const url = new URL(requestUrl)
+  //   if (url.pathname === '/editor'){
+  //     return (
+  //     <html lang="ko" className="h-full antialiased" suppressHydrationWarning>
+  //     <body
+  //       className={
+  //         pretendardStd.className + ' flex h-full bg-zinc-50 dark:bg-black'
+  //       }
+  //     >
+  //       <Providers>
+  //         <div className="flex w-full">
+  //           {children}
+  //         </div>
+  //       </Providers>
+  //     </body>
+  //   </html>
+  //     )
+  //   }
+  // }
   return (
     <html lang="ko" className="h-full antialiased" suppressHydrationWarning>
       <body
