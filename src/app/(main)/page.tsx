@@ -22,7 +22,7 @@ import { getAllArticleMetas } from '@/lib/articles'
 import MailIcon from '@/components/icons/Mail'
 import BriefcaseIcon from '@/components/icons/Briefcase'
 import ArrowDownIcon from '@/components/icons/ArrowDown'
-import ArticleElement from '@/components/ArticleElement'
+import ArticleList from '@/components/ArticleList'
 
 function SocialLink({
   icon: Icon,
@@ -241,9 +241,7 @@ export default async function Home() {
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            {articleMetas.map((articleMeta) => (
-              <ArticleElement key={articleMeta.key} articleMeta={articleMeta} />
-            ))}
+            <ArticleList />
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
             <Newsletter />

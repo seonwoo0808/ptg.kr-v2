@@ -1,8 +1,7 @@
 import { type Metadata } from 'next'
 
 import { SimpleLayout } from '@/components/SimpleLayout'
-import { getAllArticleMetas } from '@/lib/articles'
-import ArticleElement from '@/components/ArticleElement'
+import ArticleList from '@/components/ArticleList'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -11,8 +10,6 @@ export const metadata: Metadata = {
 }
 
 export default async function ArticlesIndex() {
-  let articleMetas = await getAllArticleMetas()
-
   return (
     <SimpleLayout
       title="Stories and Insights on Developing, Student Activity and Business."
@@ -21,9 +18,7 @@ export default async function ArticlesIndex() {
     >
       <div className="md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40">
         <div className="flex max-w-3xl flex-col space-y-16">
-          {articleMetas.map((articleMeta) => (
-            <ArticleElement key={articleMeta.key} articleMeta={articleMeta} />
-          ))}
+          <ArticleList />
         </div>
       </div>
     </SimpleLayout>

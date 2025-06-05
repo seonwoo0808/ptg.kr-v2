@@ -1,6 +1,9 @@
+export const runtime = 'edge'
+export const dynamic = 'force-dynamic'
+
 import { getAllArticleMetas } from '@/lib/articles'
 import type { MetadataRoute } from 'next'
- 
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const metadatas = await getAllArticleMetas()
   const sitemap: MetadataRoute.Sitemap = [
@@ -49,5 +52,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     })
   })
-  return sitemap 
+  return sitemap
 }
