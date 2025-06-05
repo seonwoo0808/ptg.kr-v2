@@ -6,6 +6,7 @@ import { formatDate } from '@/lib/formatDate'
 import Link from 'next/link'
 import ArrowLeftIcon from '@/components/icons/ArrowLeft'
 import ArticleContent from '@/components/ArticleContent'
+import Giscus from '@/app/atom/blog-key/Giscuss'
 
 type PageParams = Promise<{ key: string }>
 
@@ -96,6 +97,23 @@ export default async function RemoteMdxPage({
             <ArticleContent content={markdown} />
           </article>
         </div>
+        <hr className="mt-24 mb-18 border-zinc-200 dark:border-zinc-700" />
+        <div className="flex items-center justify-center gap-4">
+          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+            이 글은 CC BY-NC-SA 4.0 라이선스에 따라 배포됩니다.
+          </p>
+
+          <Link
+            href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-600 hover:text-teal-800 dark:text-zinc-400 dark:hover:text-teal-400"
+          >
+            라이선스 전문 보기
+          </Link>
+        </div>
+        <hr className="my-18 border-zinc-200 dark:border-zinc-700" />
+        <Giscus />
       </div>
     </Container>
   )
